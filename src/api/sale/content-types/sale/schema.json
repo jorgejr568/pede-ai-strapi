@@ -4,20 +4,25 @@
   "info": {
     "singularName": "sale",
     "pluralName": "sales",
-    "displayName": "Sale"
+    "displayName": "Sale",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "products": {
+    "sale_products": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product"
+      "target": "api::sale-product.sale-product"
     },
-    "date": {
-      "type": "datetime",
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
       "required": true
     }
   }

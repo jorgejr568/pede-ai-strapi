@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sale_products",
+  "info": {
+    "singularName": "sale-product",
+    "pluralName": "sale-products",
+    "displayName": "SaleProduct"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "unit_price": {
+      "type": "decimal"
+    }
+  }
+}

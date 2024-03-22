@@ -868,22 +868,66 @@ export interface ApiSaleSale extends Schema.CollectionType {
     singularName: 'sale';
     pluralName: 'sales';
     displayName: 'Sale';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    products: Attribute.Relation<
+    sale_products: Attribute.Relation<
       'api::sale.sale',
       'oneToMany',
-      'api::product.product'
+      'api::sale-product.sale-product'
     >;
-    date: Attribute.DateTime & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSaleProductSaleProduct extends Schema.CollectionType {
+  collectionName: 'sale_products';
+  info: {
+    singularName: 'sale-product';
+    pluralName: 'sale-products';
+    displayName: 'SaleProduct';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    product: Attribute.Relation<
+      'api::sale-product.sale-product',
+      'oneToOne',
+      'api::product.product'
+    >;
+    quantity: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    unit_price: Attribute.Decimal;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sale-product.sale-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sale-product.sale-product',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -909,6 +953,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::product.product': ApiProductProduct;
       'api::sale.sale': ApiSaleSale;
+      'api::sale-product.sale-product': ApiSaleProductSaleProduct;
     }
   }
 }
