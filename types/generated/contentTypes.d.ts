@@ -826,12 +826,14 @@ export interface ApiGeneralGeneral extends Schema.SingleType {
     singularName: 'general';
     pluralName: 'generals';
     displayName: 'General';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     phone_number: Attribute.String & Attribute.Required;
+    sale_message_template: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

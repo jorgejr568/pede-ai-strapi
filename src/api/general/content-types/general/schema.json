@@ -4,7 +4,8 @@
   "info": {
     "singularName": "general",
     "pluralName": "generals",
-    "displayName": "General"
+    "displayName": "General",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -14,6 +15,9 @@
     "phone_number": {
       "type": "string",
       "required": true
+    },
+    "sale_message_template": {
+      "type": "text"
     }
   }
 }
