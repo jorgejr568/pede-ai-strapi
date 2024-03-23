@@ -820,6 +820,35 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiGeneralGeneral extends Schema.SingleType {
+  collectionName: 'generals';
+  info: {
+    singularName: 'general';
+    pluralName: 'generals';
+    displayName: 'General';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    phone_number: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::general.general',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::general.general',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -952,6 +981,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::event.event': ApiEventEvent;
+      'api::general.general': ApiGeneralGeneral;
       'api::product.product': ApiProductProduct;
       'api::sale.sale': ApiSaleSale;
       'api::sale-product.sale-product': ApiSaleProductSaleProduct;

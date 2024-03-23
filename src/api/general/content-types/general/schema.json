@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "generals",
+  "info": {
+    "singularName": "general",
+    "pluralName": "generals",
+    "displayName": "General"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone_number": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
