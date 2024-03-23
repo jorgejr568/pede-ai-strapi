@@ -794,6 +794,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     singularName: 'event';
     pluralName: 'events';
     displayName: 'Event';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -801,7 +802,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
   attributes: {
     event_name: Attribute.String & Attribute.Required;
     event_properties: Attribute.JSON;
-    event_session_id: Attribute.String & Attribute.Required;
+    session_id: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

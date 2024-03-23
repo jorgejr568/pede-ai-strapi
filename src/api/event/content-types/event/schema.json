@@ -4,7 +4,8 @@
   "info": {
     "singularName": "event",
     "pluralName": "events",
-    "displayName": "Event"
+    "displayName": "Event",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -19,7 +20,7 @@
       "type": "json",
       "required": false
     },
-    "event_session_id": {
+    "session_id": {
       "type": "string",
       "required": true
     }
