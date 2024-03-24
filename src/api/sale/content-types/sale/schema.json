@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sale_products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sale-product.sale-product"
-    },
     "name": {
       "type": "string",
       "required": true
@@ -24,6 +19,13 @@
     "phone": {
       "type": "string",
       "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sales.sale-product",
+      "required": true,
+      "min": 1
     }
   }
 }

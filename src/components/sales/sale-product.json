@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sales_sale_products",
+  "info": {
+    "displayName": "SaleItem",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

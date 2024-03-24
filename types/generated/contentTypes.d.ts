@@ -906,39 +906,9 @@ export interface ApiSaleSale extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    sale_products: Attribute.Relation<
-      'api::sale.sale',
-      'oneToMany',
-      'api::sale-product.sale-product'
-    >;
     name: Attribute.String & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSaleProductSaleProduct extends Schema.CollectionType {
-  collectionName: 'sale_products';
-  info: {
-    singularName: 'sale-product';
-    pluralName: 'sale-products';
-    displayName: 'SaleProduct';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    product: Attribute.Relation<
-      'api::sale-product.sale-product',
-      'oneToOne',
-      'api::product.product'
-    >;
-    quantity: Attribute.Integer &
+    items: Attribute.Component<'sales.sale-product', true> &
       Attribute.Required &
       Attribute.SetMinMax<
         {
@@ -946,20 +916,11 @@ export interface ApiSaleProductSaleProduct extends Schema.CollectionType {
         },
         number
       >;
-    unit_price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::sale-product.sale-product',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::sale-product.sale-product',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -986,7 +947,6 @@ declare module '@strapi/types' {
       'api::general.general': ApiGeneralGeneral;
       'api::product.product': ApiProductProduct;
       'api::sale.sale': ApiSaleSale;
-      'api::sale-product.sale-product': ApiSaleProductSaleProduct;
     }
   }
 }
