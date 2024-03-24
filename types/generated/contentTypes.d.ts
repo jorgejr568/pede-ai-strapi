@@ -857,6 +857,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'Product';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -877,6 +878,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
         number
       >;
     active: Attribute.Boolean;
+    category: Attribute.Enumeration<
+      ['SALGADOS', 'DOCES', 'ESPECIAIS', 'BEBIDAS']
+    > &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

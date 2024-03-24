@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,12 +18,12 @@
       "minLength": 5
     },
     "cover_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "price": {
       "type": "decimal",
@@ -31,6 +32,16 @@
     },
     "active": {
       "type": "boolean"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "SALGADOS",
+        "DOCES",
+        "ESPECIAIS",
+        "BEBIDAS"
+      ],
+      "required": true
     }
   }
 }
