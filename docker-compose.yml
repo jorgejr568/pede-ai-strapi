@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
     ports:
       - "${STRAPI_PRODUCTION_PORT:-1337}:1337"
     volumes:
@@ -14,12 +16,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    env_file:
+      - .env
     ports:
-        - "${STRAPI_DEVELOPMENT_PORT:-1337}:1337"
+      - "${STRAPI_DEVELOPMENT_PORT:-1337}:1337"
     volumes:
       - ./database.sqlite3:/app/database.sqlite3
       - ./src:/app/src
       - ./public:/app/public
       - ./config:/app/config
       - ./types:/app/types
-

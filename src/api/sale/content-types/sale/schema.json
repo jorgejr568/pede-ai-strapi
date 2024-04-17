@@ -12,11 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "phone": {
+    "address": {
       "type": "string",
       "required": true
     },

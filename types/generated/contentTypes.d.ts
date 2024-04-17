@@ -911,8 +911,7 @@ export interface ApiSaleSale extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    phone: Attribute.String & Attribute.Required;
+    address: Attribute.String & Attribute.Required;
     items: Attribute.Component<'sales.sale-product', true> &
       Attribute.Required &
       Attribute.SetMinMax<
