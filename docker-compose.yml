@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  strapi_production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${STRAPI_PRODUCTION_PORT:-1337}:1337"
+    volumes:
+      - ./database.sqlite3:/app/database.sqlite3
+      - ./public:/app/public
+  strapi_development:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+        - "${STRAPI_DEVELOPMENT_PORT:-1337}:1337"
+    volumes:
+      - ./database.sqlite3:/app/database.sqlite3
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./config:/app/config
+      - ./types:/app/types
+
