@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sales_payment_methods",
+  "info": {
+    "displayName": "Payment Method",
+    "icon": "seed"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CREDITO",
+        "DEBITO",
+        "REFEICAO",
+        "DINHEIRO"
+      ],
+      "required": false
+    },
+    "additional_info": {
+      "type": "string"
+    }
+  }
+}

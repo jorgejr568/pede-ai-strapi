@@ -22,6 +22,11 @@
       "component": "sales.sale-product",
       "required": true,
       "min": 1
+    },
+    "payment_method": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sales.payment-method"
     }
   }
 }

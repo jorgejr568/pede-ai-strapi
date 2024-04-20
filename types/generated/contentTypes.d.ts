@@ -920,6 +920,7 @@ export interface ApiSaleSale extends Schema.CollectionType {
         },
         number
       >;
+    payment_method: Attribute.Component<'sales.payment-method'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::sale.sale', 'oneToOne', 'admin::user'> &
