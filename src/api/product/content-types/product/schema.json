@@ -34,14 +34,9 @@
       "type": "boolean"
     },
     "category": {
-      "type": "enumeration",
-      "enum": [
-        "SALGADOS",
-        "DOCES",
-        "ESPECIAIS",
-        "BEBIDAS"
-      ],
-      "required": true
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }
