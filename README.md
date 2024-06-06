@@ -47,8 +47,8 @@ Before you begin, ensure you have met the following requirements:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/jorgejr568/pede-ai.git
-   cd pede-ai
+   git clone https://github.com/jorgejr568/pede-ai-strapi.git
+   cd pede-ai-strapi
    ```
 
 2. **Install dependencies:**
